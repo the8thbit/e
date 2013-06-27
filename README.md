@@ -5,6 +5,13 @@ the minimalistest text editor
 
 
 
+Description
+=
+
+Weighing in at about half the memory footprint of ed, e is the most minimalist text editor I am aware of. This is achieved through its rediculously minimalist feature set. e has no output, and only takes four commands: save (ctrl+d), close (ctrl+f), seek left (ctrl+j), and seek right (ctrl+k). e only takes one command-line argument, the path of the file you want edit. Part of my goal in writing e was to distill the concept of a text editor down to its bare minimum, where removing any functionality would change the fundamental nature of the software. Because of the heavy reliance on UNIX system APIs, e will only compile and run on UNIX and UNIX-like systems.
+
+
+
 Installation Instructions
 =
 

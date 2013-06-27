@@ -1,3 +1,13 @@
+/******************************************************************************
+ * e: The minimalistest text editor
+ *
+ * Author: Peter Sussman
+ * Description: This is the most important file, I guess...
+ * Copyright: Copyright (C) 2012-2013 Peter Sussman
+ * License: GNU AGPL version 3.0+
+ * ****************************************************************************/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

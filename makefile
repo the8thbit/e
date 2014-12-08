@@ -1,2 +1,2 @@
 all: 
-  gcc ./e.c ./codes.c -o e
+	gcc ./e.c ./codes.c -o e

@@ -7,13 +7,19 @@ the minimalistest text editor
 Description
 =
 
-Weighing in at about half the memory footprint of ed, e is the most minimalist text editor I am aware of. This is achieved through its ridiculously minimalist feature set. e has no output, and only takes four commands: save (ctrl+d), close (ctrl+f), seek left (ctrl+j), and seek right (ctrl+k). Rather than taking a file name as an argument (e has no arguments) e writes to stdout, so direct it at a file using the shell > operator to edit it. Part of my goal in writing e was to distil the concept of a text editor down to its bare minimum, where removing any functionality would change the fundamental nature of the software. Because of the heavy reliance on UNIX system APIs, e will only compile and run on UNIX and UNIX-like systems.
+Weighing in at about half the memory footprint of ed, e is the most minimalist text editor I am aware of. This is achieved through its ridiculously minimalist feature set. e has no output, and only takes four commands: save (ctrl+d), close (ctrl+f), seek left (ctrl+j), and seek right (ctrl+k). Rather than taking a file name as an argument (e has no arguments) e writes to stdout, so to edit a file you must direct e to it using the shell > operator. Part of my goal in writing e was to distil the concept of a text editor down to its bare minimum, where removing any functionality would change the fundamental nature of the software. Because of the heavy reliance on UNIX system APIs, e will only compile and run on UNIX and UNIX-like systems.
 
 
 Installation Instructions
 =
 
-Run make.
+    make
+
+
+Usage Instructions
+=
+
+    e > filename.ext
 
 
 License

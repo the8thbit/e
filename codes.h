@@ -10,7 +10,6 @@
 #define CONTROL(c) (c-96)
 #define SHIFT(c) (c-32)
 
-
 /** Terminal operations **/
 typedef struct termios tstate;
 int t_getstate(tstate *state); /* get current state */

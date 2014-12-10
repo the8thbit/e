@@ -40,7 +40,7 @@ unsigned int read_file(char** edit_buffer, register unsigned int *fails) {
 	return data_read; 
 }
 
-unsigned int add_char( char new_char, register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail ) { 
+unsigned int add_char(char new_char, register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail) { 
 	if (strlen( *edit_buffer ) + 1 >= alloc_size) {
 		char* realloc_buffer;
 		alloc_size += alloc_size;
@@ -61,7 +61,7 @@ unsigned int add_char( char new_char, register unsigned int pos, char** edit_buf
 	return alloc_size;
 }
 
-unsigned int remove_char( register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail ) {
+unsigned int remove_char(register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail) {
 	if (strlen(*edit_buffer) * 4 <= alloc_size) {
 		char* realloc_buffer;
 		alloc_size /= 2;

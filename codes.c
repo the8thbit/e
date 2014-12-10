@@ -36,7 +36,7 @@ int t_setstate(const tstate *state){
 }
 
 int t_clear() {
-	return fputs("[2J", stdout );
+	return fputs("[2J", stdout);
 }
 
 int t_getwidth() {

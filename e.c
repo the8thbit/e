@@ -16,9 +16,9 @@
 
 static tstate original, n_state; /* states of the terminal */
 
-unsigned int read_file(char** edit_buffer, register unsigned int *fails) {
-	register size_t file_size;
-	register size_t data_read = 0;
+unsigned int read_file(char** edit_buffer, unsigned int *fails) {
+	size_t file_size;
+	size_t data_read = 0;
 	*edit_buffer = malloc(0);
 
 	while(!ferror(stdin) && !feof(stdin)) {
@@ -40,7 +40,7 @@ unsigned int read_file(char** edit_buffer, register unsigned int *fails) {
 	return data_read; 
 }
 
-unsigned int add_char(char new_char, register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail) { 
+unsigned int add_char(char new_char, unsigned int pos, char** edit_buffer, char** temp_buffer, unsigned int alloc_size, unsigned int* fail) { 
 	if (strlen( *edit_buffer ) + 1 >= alloc_size) {
 		char* realloc_buffer;
 		alloc_size += alloc_size;
@@ -61,7 +61,7 @@ unsigned int add_char(char new_char, register unsigned int pos, char** edit_buff
 	return alloc_size;
 }
 
-unsigned int remove_char(register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail) {
+unsigned int remove_char(unsigned int pos, char** edit_buffer, char** temp_buffer, unsigned int alloc_size, unsigned int* fail) {
 	if (strlen(*edit_buffer) * 4 <= alloc_size) {
 		char* realloc_buffer;
 		alloc_size /= 2;
@@ -81,10 +81,10 @@ unsigned int remove_char(register unsigned int pos, char** edit_buffer, char** t
 	return alloc_size;
 }
 
-int main(register int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
 	unsigned int fail = 0; /* success and golf are scored in the same way */
-	register unsigned int pos = 0;
-	register unsigned int alloc_size;
+	unsigned int pos = 0;
+	unsigned int alloc_size;
 	char ch[7];
 	char* edit_buffer;
 	char* temp_buffer;

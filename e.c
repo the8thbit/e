@@ -81,7 +81,7 @@ unsigned int remove_char(register unsigned int pos, char** edit_buffer, char** t
 	return alloc_size;
 }
 
-unsigned int main(register unsigned int argc, char* argv[]) {
+int main(register int argc, char* argv[]) {
 	unsigned int fail = 0; /* success and golf are scored in the same way */
 	register unsigned int pos = 0;
 	register unsigned int alloc_size;
@@ -132,4 +132,4 @@ unsigned int main(register unsigned int argc, char* argv[]) {
 	fflush(stdout);
 
 	return fail;
-};
+}

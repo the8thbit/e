@@ -16,9 +16,9 @@
 
 static tstate original, n_state; /* states of the terminal */
 
-unsigned int read_file(char** edit_buffer, register unsigned int *fails) {
-	register size_t file_size;
-	register size_t data_read = 0;
+int read_file(char** edit_buffer, int *fails) {
+	size_t file_size;
+	size_t data_read = 0;
 	*edit_buffer = malloc(0);
 
 	while(!ferror(stdin) && !feof(stdin)) {
@@ -40,8 +40,8 @@ unsigned int read_file(char** edit_buffer, register unsigned int *fails) {
 	return data_read; 
 }
 
-unsigned int add_char(char new_char, register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail) { 
-	if (strlen( *edit_buffer ) + 1 >= alloc_size) {
+int add_char(char new_char, int pos, char** edit_buffer, char** temp_buffer, int alloc_size, int* fail) { 
+	if ((int) strlen( *edit_buffer ) + 1 >= alloc_size) {
 		char* realloc_buffer;
 		alloc_size += alloc_size;
 		*edit_buffer = (realloc_buffer = realloc(*edit_buffer, alloc_size));
@@ -61,8 +61,8 @@ unsigned int add_char(char new_char, register unsigned int pos, char** edit_buff
 	return alloc_size;
 }
 
-unsigned int remove_char(register unsigned int pos, char** edit_buffer, char** temp_buffer, register unsigned int alloc_size, register unsigned int* fail) {
-	if (strlen(*edit_buffer) * 4 <= alloc_size) {
+int remove_char(int pos, char** edit_buffer, char** temp_buffer, int alloc_size, int* fail) {
+	if ((int) strlen(*edit_buffer) * 4 <= alloc_size) {
 		char* realloc_buffer;
 		alloc_size /= 2;
 		*edit_buffer = (realloc_buffer = realloc(*edit_buffer, alloc_size));
@@ -81,10 +81,10 @@ unsigned int remove_char(register unsigned int pos, char** edit_buffer, char** t
 	return alloc_size;
 }
 
-unsigned int main(register unsigned int argc, char* argv[]) {
-	unsigned int fail = 0; /* success and golf are scored in the same way */
-	register unsigned int pos = 0;
-	register unsigned int alloc_size;
+int main(int argc, char* argv[]) {
+	int fail = 0; /* success and golf are scored in the same way */
+	int pos = 0;
+	int alloc_size;
 	char ch[7];
 	char* edit_buffer;
 	char* temp_buffer;
@@ -106,7 +106,7 @@ unsigned int main(register unsigned int argc, char* argv[]) {
 				pos -= 1;
 			}
 		} else if (ch[0] == 27 && ch[1] == 'k' && ch[2] == 0) { /* alt+k - move forwards */
-			if (pos < strlen(edit_buffer)) {
+			if (pos < (int) strlen(edit_buffer)) {
 				pos += 1;
 			}
 		} else if (ch[0] == 27 && ch[1] == 'd' && ch[2] == 0) { /* alt+d - save file */
@@ -132,4 +132,4 @@ unsigned int main(register unsigned int argc, char* argv[]) {
 	fflush(stdout);
 
 	return fail;
-};
+}
